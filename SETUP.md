@@ -1,3 +1,5 @@
+https://vincenttechblog.com/fixed-cloud-run-failed-to-start-and-then-listen-on-the-port-defined-by-the-port/
+
 https://www.youtube.com/watch?v=ZmfDlUAokYc
 
 Mac: docker buildx build --platform linux/amd64 -t test .
