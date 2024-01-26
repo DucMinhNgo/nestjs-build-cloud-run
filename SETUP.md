@@ -25,3 +25,21 @@ docker tag image_name gcr.io/project_id/app
 docker tag app gcr.io/test-upload-47a24/app
 
 docker push gcr.io/test-upload-47a24/app
+
+# Push Cloud Functions
+cd gcp-function
+
+gcloud config set project YOUR_PROJECT_ID
+
+gcloud functions deploy processBucketEvent \
+  --runtime nodejs16 \
+  --trigger-resource YOUR_BUCKET_NAME \
+  --trigger-event google.storage.object.finalize 
+
+gcloud config set project test-upload-47a24
+
+gcloud functions deploy processBucketEvent \
+  --runtime nodejs16 \
+  --trigger-resource dustin-upload-file-function \
+  --trigger-event google.storage.object.finalize 
+  --project test-upload-47a24 
